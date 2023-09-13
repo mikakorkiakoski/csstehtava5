@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/themestyles.css">
+
+    <title>AssignmentFive</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a class="active" href="news.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <button id="lightThemeButton">Light Theme</button>
+                <button id="darkThemeButton">Dark Theme</button>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Latest News</h1>
+        <article>
+            <h2>Making of Assignment two CSS</h2>
+            <p>Assignment number two was pretty easy. I only changed navbar's buttons to different lines to be more
+                mobile-friendly.</p>
+            <p>I figured out that mobile development is not that complex deal.</p>
+        </article>
+        <article>
+            <h2>Making of this assignment</h2>
+            <p>This assignment was really frustrating and i tried to do this many hours but i finally figured it out. I
+                had to use a little bit of javascript</p>
+        </article>
+    </main>
+    <script>
+        const lightThemeButton = document.getElementById("lightThemeButton");
+        const darkThemeButton = document.getElementById("darkThemeButton");
+        const body = document.body;
+
+        // Check for the selected theme in local storage and apply it
+        const savedTheme = localStorage.getItem("selectedTheme");
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+        }
+
+        lightThemeButton.addEventListener("click", () => {
+            body.classList.remove("dark-theme");
+            localStorage.setItem("selectedTheme", "");
+        });
+
+        darkThemeButton.addEventListener("click", () => {
+            body.classList.add("dark-theme");
+            localStorage.setItem("selectedTheme", "dark-theme");
+        });
+    </script>
+</body>
+
+</html>
